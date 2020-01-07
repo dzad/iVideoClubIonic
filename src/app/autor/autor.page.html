@@ -13,22 +13,22 @@
       </ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <p>Aplicación desarrollada por Javier Gallego. A continuación puede consultar más informacin sobre el autor.</p>
+      <p>Aplicación desarrollada por {{autor.name}}. A continuación puede consultar más informacin sobre el autor.</p>
       <ion-item button routerDirection="root" (click)=[abrirCurriculum()]>
         <ion-icon name="book" slot="start" ></ion-icon>
         <ion-label>Currículum vítae</ion-label>
       </ion-item>
       <ion-item>
         <ion-icon name="mail" slot="start" ></ion-icon>
-        <ion-label><a href="mailto:email@email.com"><b>Correo:</b> email@email.com</a></ion-label>
+        <ion-label><a [href]="mailto"><b>Correo:</b> {{autor.email}}</a></ion-label>
       </ion-item>
       <ion-item>
         <ion-icon name="logo-twitter" slot="start" ></ion-icon>
-        <ion-label><a href="twitter.com/twitter"><b>Twitter:</b> @twitter</a></ion-label>
+        <ion-label><a [href]="twitterProfile"><b>Twitter:</b> {{autor.twitter}}</a></ion-label>
       </ion-item>
       <ion-item>
         <ion-icon name="call" slot="start" ></ion-icon>
-        <ion-label><a href="tel:999888777"><b>Teléfono:</b> 999888777</a></ion-label>
+        <ion-label><a [href]="telTo"><b>Teléfono:</b> {{autor.phone}}</a></ion-label>
       </ion-item>
     </ion-card-content>
   </ion-card>
