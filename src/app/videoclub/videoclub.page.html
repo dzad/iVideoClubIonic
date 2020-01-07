@@ -6,51 +6,16 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item button (click)="verPaginaDetalle(1)">
+  <ion-list *ngIf="listaPeliculas">
+    <ion-item *ngFor="let pelicula of listaPeliculas; index as id" (click)="verPaginaDetalle(id)" detail>
       <ion-thumbnail slot="start">
-        <ion-img src="assets/el_padrino.jpg"></ion-img>
+        <ion-img [src]="pelicula.poster"></ion-img>
       </ion-thumbnail>
       <ion-label>
-        <h2>El padrino</h2>
-        <p><b>Director:</b> Francis Ford Coppola<br><b>Año:</b> 1972</p>
-      </ion-label>
-    </ion-item>
-    <ion-item button (click)="verPaginaDetalle(1)">
-      <ion-thumbnail slot="start">
-        <ion-img src="assets/el_padrino_2.jpg"></ion-img>
-      </ion-thumbnail>
-      <ion-label>
-        <h2>El Padrino. Parte II</h2>
-        <p><b>Director:</b> Francis Ford Coppola<br><b>Año:</b> 1974</p>
-      </ion-label>
-    </ion-item >
-    <ion-item button (click)="verPaginaDetalle(1)">
-      <ion-thumbnail slot="start">
-        <ion-img src="assets/la_lista_de_schindler.jpg"></ion-img>
-      </ion-thumbnail>
-      <ion-label>
-        <h2>La lista de Schindler</h2>
-        <p><b>Director:</b> Steven Spielberg<br><b>Año:</b> 1993</p>
-      </ion-label>
-    </ion-item>
-    <ion-item button (click)="verPaginaDetalle(1)">
-      <ion-thumbnail slot="start">
-        <ion-img src="assets/pulp_fiction.jpg"></ion-img>
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Pulp Fiction</h2>
-        <p><b>Director:</b> Quentin Tarantino<br><b>Año:</b> 1994</p>
-      </ion-label>
-    </ion-item>
-    <ion-item button (click)="verPaginaDetalle(1)">
-      <ion-thumbnail slot="start">
-        <ion-img src="assets/cadena_perpetua.jpg"></ion-img>
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Cadena perpetua</h2>
-        <p><b>Director:</b> Frank Darabont<br><b>Año:</b> 1994</p>
+        <h2>{{pelicula.title}}</h2>
+        <p><b>Director:</b> {{pelicula.director}}<br><b>Año:</b> {{pelicula.year}}</p>
       </ion-label>
     </ion-item>
   </ion-list>
+
 </ion-content>

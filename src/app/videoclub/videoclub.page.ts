@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { DatosService } from '../services/datos.service';
 
 @Component({
   selector: 'app-videoclub',
@@ -7,8 +8,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./videoclub.page.scss'],
 })
 export class VideoclubPage implements OnInit, OnDestroy{
+  listaPeliculas : {
+    title: string,
+    year: string,
+    director: string,
+    poster: string,
+    synopsis: string} [];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private datos: DatosService) {
+    this.listaPeliculas = datos.getPeliculas();
+  }
 
   ngOnInit() {
     console.log('ngOnInit VideoclubPage');
