@@ -17,7 +17,7 @@ const routes: Routes = [
     loadChildren: () => import('./videoclub/videoclub.module').then( m => m.VideoclubPageModule)
   },
   {
-    path: 'detalle/:title/:director/:ano/:sinopsis/:imageUrl',
+    path: 'detalle/:id',
     loadChildren: () => import('./detalle/detalle.module').then( m => m.DetallePageModule)
   },
 ];
