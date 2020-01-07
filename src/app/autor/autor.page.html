@@ -1,5 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
+    <ion-buttons slot="start">      <ion-back-button defaultHref="home"></ion-back-button>    </ion-buttons>
     <ion-title>Autor</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,7 +14,7 @@
     </ion-card-header>
     <ion-card-content>
       <p>Aplicación desarrollada por Javier Gallego. A continuación puede consultar más informacin sobre el autor.</p>
-      <ion-item button>
+      <ion-item button routerDirection="root" (click)=[abrirCurriculum()]>
         <ion-icon name="book" slot="start" ></ion-icon>
         <ion-label>Currículum vítae</ion-label>
       </ion-item>

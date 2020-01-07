@@ -21,7 +21,7 @@
       <p>Para acceder a la gestión del videoclub pulsa el siguiente botón:</p>
       <ion-button expand="fill" fill="clear">
         <ion-icon name="videocam" slot="start"></ion-icon>
-        <ion-label>Acceso a iVideoclub</ion-label>
+        <ion-label (click)=[abrirVideoClub()]>Acceso a iVideoclub</ion-label>
       </ion-button>
     </ion-card-content>
   </ion-card>
@@ -35,7 +35,7 @@
       <p>Aplicación desarrollada por Javier Gallego.</p>
       <ion-button expand="fill" fill="clear">
         <ion-icon name="person" slot="start" ></ion-icon>
-        <ion-label>Consultar información</ion-label>
+        <ion-label (click)=[abrirAutor()]>Consultar información</ion-label>
       </ion-button>
     </ion-card-content>
   </ion-card>
