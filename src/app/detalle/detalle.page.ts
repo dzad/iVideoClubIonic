@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DatosService } from '../services/datos.service';
+import { PeliculasAPIService } from '../services/peliculas-api.service';
 
 @Component({
   selector: 'app-detalle',
@@ -16,16 +16,19 @@ export class DetallePage implements OnInit {
     poster: string,
     synopsis: string};
 
-  miDatos: DatosService;
-
-  constructor(private activatedRoute: ActivatedRoute,private datos: DatosService) {
-    this.miDatos = datos;
+  constructor(private activatedRoute: ActivatedRoute,private peliculasAPI: PeliculasAPIService) {
   }
 
   ngOnInit(){
     const id = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log("id = "+id);
-    this.pelicula = this.miDatos.getPelicula(id);
+    this.peliculasAPI.getPelicula(id).subscribe(
+      result => {
+        this.pelicula = result;
+      },
+      err => {
+        console.log(err);
+     }
+    );
   }
 
 }
