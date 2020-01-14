@@ -16,16 +16,16 @@ export class DetallePage implements OnInit {
     poster: string,
     synopsis: string};
 
-  datos: DatosService;
+  miDatos: DatosService;
 
   constructor(private activatedRoute: ActivatedRoute,private datos: DatosService) {
-    this.datos = datos;
+    this.miDatos = datos;
   }
 
   ngOnInit(){
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     console.log("id = "+id);
-    this.pelicula = this.datos.getPelicula(id);
+    this.pelicula = this.miDatos.getPelicula(id);
   }
 
 }
