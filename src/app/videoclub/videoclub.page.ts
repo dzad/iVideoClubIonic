@@ -15,6 +15,8 @@ export class VideoclubPage implements OnInit, OnDestroy{
     poster: string,
     synopsis: string} [];
 
+    modoLista = true;
+
   constructor(private router: Router, private datos: DatosService) {
     this.listaPeliculas = datos.getPeliculas();
   }
@@ -44,6 +46,10 @@ export class VideoclubPage implements OnInit, OnDestroy{
 
   verPaginaDetalle(id): void {
     this.router.navigate(['/detalle', id]);
+  }
+
+  cambiarVista(): void {
+    this.modoLista = !this.modoLista;
   }
 
 }

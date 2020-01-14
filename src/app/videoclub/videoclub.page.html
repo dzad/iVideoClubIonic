@@ -1,7 +1,17 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-buttons slot="start">      <ion-back-button defaultHref="home"></ion-back-button>    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
     <ion-title>iVideoclub</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button *ngIf="modoLista == true" (click)="cambiarVista()">
+        <ion-icon slot="icon-only" name="md-apps"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="modoLista == false" (click)="cambiarVista()">
+          <ion-icon slot="icon-only" name="md-reorder"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
