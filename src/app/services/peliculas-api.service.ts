@@ -9,11 +9,11 @@ export class PeliculasAPIService {
 
   constructor(public http: HttpClient) { }
 
-  getPeliculas(): any{
+  getPeliculas(){
     return this.http.get(this.APIep);
   }
 
-  getPelicula(id): any {
+  getPelicula(id) {
     return this.http.get(this.APIep + '/' + id);
   }
 }

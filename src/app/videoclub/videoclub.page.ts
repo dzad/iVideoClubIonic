@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { DatosService } from '../services/datos.service';
+import { PeliculasAPIService } from '../services/peliculas-api.service';
 
 @Component({
   selector: 'app-videoclub',
@@ -8,17 +8,19 @@ import { DatosService } from '../services/datos.service';
   styleUrls: ['./videoclub.page.scss'],
 })
 export class VideoclubPage implements OnInit, OnDestroy{
-  listaPeliculas : {
-    title: string,
-    year: string,
-    director: string,
-    poster: string,
-    synopsis: string} [];
+  private listaPeliculas ;
 
     modoLista = true;
 
-  constructor(private router: Router, private datos: DatosService) {
-    this.listaPeliculas = datos.getPeliculas();
+  constructor(private router: Router, private peliculasAPI: PeliculasAPIService) {
+    peliculasAPI.getPeliculas().subscribe(
+      result => {
+        this.listaPeliculas = result;
+      },
+      err => {
+        console.log(err);
+     }
+   );
   }
 
   ngOnInit() {
